@@ -158,7 +158,16 @@
       "type" : "object",
       "properties" : {
         "type" : {
-          "type" : "string"
+          "oneOf" : [
+            {
+              "title" : "custom",
+              "type" : "string"
+            },
+            {
+              "title" : "builtins",
+              "$ref" : "#/definitions/builtinActionsEnum"
+            }
+          ]
         },
         "options" : {
           "type" : "object"
@@ -183,10 +192,22 @@
             }
           }
         }
-      }
+      },
+      "required" : ["type"]
+    },
+    "builtinActionsEnum" : {
+      "type" : "string",
+      "enum" : ["$render", "$reload", "$snapshot", "$href", "$close", "$back",
+        "$network.request", "$network.upload", "$session.set", "$session.reset",
+        "$set", "$get", "$cache.set", "$cache.reset", "$global.set", "$global.reset",
+        "$util.banner", "$util.toast", "$util.alert", "$util.share", "$util.picker", "$util.datepicker", "$util.addressbook",
+        "$media.camera", "$media.picker", "media.player",
+        "$audio.play", "$audio.pause", "$audio.stop", "$audio.seek", "$audio.position", "$audio.duration", "audio.record",
+        "$geo.get", "$timer.start", "$timer.stop", "$convert.csv", "$convert.rss"
+      ]
     },
     "template" : {
-
+      "type" : "object"
     },
     "imgUrl" : {
       "type" : "string",
