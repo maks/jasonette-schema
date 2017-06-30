@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "title" : "$jason",
+  "properties" : {
+    "head": {
+      "type": "object",
+      "description": "The head contains a set of metadata that doesn't get displayed directly",
+      "properties" : {
+        "title" : {
+          "type" : "string"
+        },
+        "styles" : {
+          "type" : "object",
+          "additionalProperties" : {
+            "$ref" : "#/definitions/style"
+          }
+        }
+      }
+    },
+    "body": {
+      "type": "object",
+      "description": "Body contains everything that gets displayed on the screen."
+    }
+  },
+  "definitions" : {
+    "style" : {
+      "type" : "object",
+      "properties" : {
+        "font" : {
+            "type" : "string"
+        }
+      }
+    }
+  }
+}
