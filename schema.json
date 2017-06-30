@@ -48,7 +48,20 @@
     },
     "body": {
       "type": "object",
-      "description": "Body contains everything that gets displayed on the screen."
+      "description": "Body contains everything that gets displayed on the screen.",
+      "properties" : {
+        "header" : {
+          "description": "Header describes the top header bar and its components.",
+          "properties" : {
+            "title" : {
+              "anyOf": [
+                { "type": "string" },
+                { "$ref": "#/definitions/advancedTitle" }
+              ]
+            }
+          }
+        }
+      }
     }
   },
   "definitions" : {
@@ -106,6 +119,57 @@
     },
     "data" : {
       "type" : "object"
+    },
+    "advancedTitle" : {
+      "title" : "Advanced Title",
+      "type" : "object",
+      "additionalProperties": false,
+      "oneOf" : [ {
+          "title" : "Title with Image",
+          "properties" : {
+            "type" : {
+              "type" : "string",
+              "enum" : ["image"]
+            },
+            "url" : {
+              "type" : "string",
+              "links": [
+                {
+                  "href": "{{self}}",
+                  "mediaType": "image/png"
+                }
+              ]
+            },
+            "style" : {
+              "type" : "object",
+              "properties" : {
+                "width" : {
+                  "type" : "integer"
+                },
+                "height" : {
+                  "type" : "integer"
+                }
+              },
+              "required" : ["width, height"]
+            }
+          },
+          "required" : ["type", "url"]
+        },
+        {
+          "title" : "Title with Label",
+          "properties" : {
+            "type" : {
+              "type" : "string",
+              "enum" : ["label"]
+            },
+            "text" : {
+              "type" : "string",
+              "format" : "text"
+            }
+          },
+          "required" : ["type", "text"]
+        }
+      ]
     }
   }
 }
