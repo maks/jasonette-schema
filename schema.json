@@ -10,6 +10,22 @@
         "title" : {
           "type" : "string"
         },
+        "description" : {
+          "type" : "string"
+        },
+        "icon" : {
+          "type" : "string",
+          "format" : "url",
+          "links": [
+            {
+              "href": "{{self}}",
+              "mediaType": "image/png"
+            }
+          ]
+        },
+        "offline" : {
+          "type" : "boolean"
+        },
         "styles" : {
           "type" : "object",
           "additionalProperties" : {
@@ -28,7 +44,17 @@
       "type" : "object",
       "properties" : {
         "font" : {
-            "type" : "string"
+          "type" : "string"
+        },
+        "size" : {
+          "type" : "integer"
+        },
+        "padding" : {
+          "type" : "integer"
+        },
+        "color" : {
+          "type" : "string",
+          "format" : "color"
         }
       }
     }
