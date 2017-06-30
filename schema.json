@@ -14,14 +14,7 @@
           "type" : "string"
         },
         "icon" : {
-          "type" : "string",
-          "format" : "url",
-          "links": [
-            {
-              "href": "{{self}}",
-              "mediaType": "image/png"
-            }
-          ]
+          "$ref" : "#/definitions/imgUrl"
         },
         "offline" : {
           "type" : "boolean"
@@ -91,7 +84,7 @@
 
             },
             "style" : {
-
+              "$ref" : "#/definitions/style"
             }
           }
         },
@@ -105,7 +98,39 @@
 
         },
         "style" : {
+          "properties" : {
+            "background" : {
+              "description" : "setting the background of the view",
+              "oneOf" : [
+                {
+                  "title" : "color",
+                  "type" : "string",
+                  "format" : "color"
+                },
+                {
+                  "title" : "img url",
+                  "$ref" : "#/definitions/imgUrl"
+                }
+              ]
 
+            },
+            "border" : {
+              "description" : "setting the border color for section items",
+              "oneOf" : [ {
+                "title" : "none",
+                "type" : "string",
+                "enum" : ["none"],
+                "required" : ["none"]
+              },
+              {
+                "title" : "border color",
+                "type" : "string",
+                "format" : "color",
+                "required" : ["color"]
+              }
+              ]
+            }
+          }
         }
       }
     }
@@ -163,6 +188,16 @@
     "template" : {
 
     },
+    "imgUrl" : {
+      "type" : "string",
+      "format" : "url",
+      "links": [
+        {
+          "href": "{{self}}",
+          "mediaType": "image/png"
+        }
+      ]
+    },
     "data" : {
       "type" : "object"
     },
@@ -178,13 +213,7 @@
               "enum" : ["image"]
             },
             "url" : {
-              "type" : "string",
-              "links": [
-                {
-                  "href": "{{self}}",
-                  "mediaType": "image/png"
-                }
-              ]
+              "$ref" : "#/definitions/imgUrl"
             },
             "style" : {
               "type" : "object",
