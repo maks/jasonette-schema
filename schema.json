@@ -80,24 +80,10 @@
           "type" : "object"
         },
         "success" : {
-          "properties" : {
-            "type" : {
-              "type" : "string"
-            },
-            "options" : {
-              "type" : "object"
-            }
-          }
+          "$ref" : "#/definitions/action"
         },
         "error" : {
-          "properties" : {
-            "type" : {
-              "type" : "string"
-            },
-            "options" : {
-              "type" : "object"
-            }
-          }
+          "$ref" : "#/definitions/action"
         }
       }
     },
