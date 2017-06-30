@@ -50,6 +50,9 @@
       "type": "object",
       "description": "Body contains everything that gets displayed on the screen.",
       "properties" : {
+        "ads" : {
+
+        },
         "header" : {
           "description": "Header describes the top header bar and its components.",
           "properties" : {
@@ -58,8 +61,51 @@
                 { "type": "string" },
                 { "$ref": "#/definitions/advancedTitle" }
               ]
+            },
+            "search" : {
+              "description" : "Search component. Calls an action you define when user submits a query.",
+              "properties" : {
+                  "name" : {
+                    "description" : "The value inside the search input is automatically stored to the local variable named by this property",
+                    "type" : "string"
+                  },
+                  "placeholder" : {
+
+                  },
+                  "action" : {
+                    "description" : "Action to trigger if defined",
+                    "$ref" : "#/definitions/action"
+                  },
+                  "style" : {
+                    "properties" : {
+                      "background" : {
+                        "description" : "background color",
+                        "type" : "string",
+                        "format" : "color"
+                      }
+                    }
+                  }
+              }
+            },
+            "menu" : {
+
+            },
+            "style" : {
+
             }
           }
+        },
+        "sections" : {
+
+        },
+        "layers" : {
+
+        },
+        "footer" : {
+
+        },
+        "style" : {
+
         }
       }
     }
