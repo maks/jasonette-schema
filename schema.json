@@ -246,7 +246,7 @@
                   "type" : "integer"
                 }
               },
-              "required" : ["width, height"]
+              "required" : ["width", "height"]
             }
           },
           "required" : ["type", "url"]
